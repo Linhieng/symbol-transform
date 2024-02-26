@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
     <p>
@@ -32,12 +34,16 @@
             width: 95vw;
             display: flex;
         }
-        input, p {
+
+        input,
+        p {
             font-size: 2rem;
         }
+
         span {
             font-size: 5rem;
         }
+
         button {
             width: 100px;
             height: 50px;
@@ -50,11 +56,11 @@
     </style>
     <script>
         document.querySelector('button#btnShowRange').onclick = emitBtn
-        document.querySelector('input#from').onkeyup = e =>  e.keyCode === 13 && emitBtn()
-        document.querySelector('input#to').onkeyup = e =>  e.keyCode === 13 && emitBtn()
+        document.querySelector('input#from').onkeyup = e => e.keyCode === 13 && emitBtn()
+        document.querySelector('input#to').onkeyup = e => e.keyCode === 13 && emitBtn()
 
         function emitBtn() {
-            console.log('123');
+            console.log('123')
             const from = document.querySelector('input#from')
             const to = document.querySelector('input#to')
             try {
@@ -63,7 +69,7 @@
                 if (Number.isNaN(a) || Number.isNaN(b)) return
                 document.querySelector('p#showRange').textContent = generateRangeChar(a, b).join(' ')
             } catch (error) {
-                console.error(error.message);
+                console.error(error.message)
             }
         }
 
@@ -74,7 +80,7 @@
             if (e.target.value !== '') {
                 const num = e.target.value.charCodeAt() || 0
                 showNum.innerText =
-                   `10 radix: &#${num};
+                    `10 radix: &#${num};
                     16 radix: U+${num.toString(16)}
                     `
             } else {
@@ -94,7 +100,7 @@
                 return generateRangeChar(b, a)
             }
             const result = []
-            for (let i = a; i <=b ; i++) {
+            for (let i = a; i <= b; i++) {
                 result.push(toChar(i))
             }
             return result
@@ -112,4 +118,5 @@
         }
     </script>
 </body>
+
 </html>
